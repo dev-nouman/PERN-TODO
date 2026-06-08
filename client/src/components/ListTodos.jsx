@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import EditTodo from "./EditTodo";
 
 const ListTodos = () => {
 
@@ -36,7 +37,7 @@ const ListTodos = () => {
 
     return (
         <>
-            <table className="w-full max-w-4xl mx-auto mt-8 border-collapse border border-gray-300 shadow-md">
+            <table className="w-full max-w-4xl mx-auto mt-8 border-collapse border border-gray-300 text-center shadow-md">
                 <thead>
                     <tr className="bg-gray-100">
                         <th className="border border-gray-300 px-4 py-2">Description</th>
@@ -57,11 +58,11 @@ const ListTodos = () => {
                     {todos.map(todo => (
                         <tr key={todo.todo_id} className="hover:bg-gray-50">
                             <td className="border border-gray-300 px-4 py-2">{todo.description}</td>
-                            <td className="border border-gray-300 px-4 py-2">Edit</td>
+                            <td className="border border-gray-300 px-4 py-2"><EditTodo todo={todo} /></td>
                             <td className="border border-gray-300 px-4 py-2">
                                 <button
                                     onClick={() => deleteTodo(todo.todo_id)}
-                                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-600 transition">
+                                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700 transition">
                                     Delete
                                 </button>
                             </td>
